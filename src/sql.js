@@ -19,11 +19,7 @@ exports.insert = function insert(table, data) {
     return pgpool.query(generateInsertSQL(table, data), Object.values(data)).then(result => result.rows[0])
 }
 
-exports.update = function update(table, data) {
-    const id = data.id
-    delete data.id
-    delete data.created_at
-
+exports.update = function update(table, data, id) {
     const values = Object.values(data)
     values.push(id)
 
