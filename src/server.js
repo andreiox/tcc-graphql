@@ -17,5 +17,5 @@ const schema = new GraphQLSchema({
 
 app.use('/', graphqlHTTP({ schema: schema, graphiql: true }))
 
-const PORT = process.env.PORT | 3000
-app.listen(PORT, () => { console.log('graphql is running...') })
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => { console.log(`GraphQL is running on port ${PORT}`) })
