@@ -1,0 +1,25 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - npm ci
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+  post_build:
+    commands:
+      - echo Build completed on `date`
+cache:
+  paths:
+    - 'node_modules/**/*'
+artifacts:
+  files:
+    - '.ebextensions/*'
+    - 'src/**/*'
+    - 'node_modules/**/*'
+    - 'package.json'
+  name: tcc-graphql-$(date +%Y-%m-%d)
