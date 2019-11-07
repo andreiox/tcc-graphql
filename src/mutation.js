@@ -15,7 +15,7 @@ module.exports = new GraphQLObjectType({
             type: types.singerType,
             args: { id: { type: GraphQLString }, singer: { type: types.singerTypeInput } },
             resolve: (value, { id, singer }) => { return update('singers', singer, id) }
-        }, 
+        },
         deleteSinger: {
             type: types.singerType,
             args: { id: { type: GraphQLString } },

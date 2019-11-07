@@ -26,8 +26,8 @@ exports.update = function update(table, data, id) {
     return pgpool.query(generateUpdateSQL(table, data), values).then(result => result.rows[0])
 }
 
-exports.select = function select(table, condition, conditionValues) {
-    return pgpool.query(generateSelectSQL(table, condition), conditionValues).then(result => result.rows)
+exports.select = function select(table, condition, conditionValues, attributesToRetrieve = ['*']) {
+    return pgpool.query(generateSelectSQL(table, condition, attributesToRetrieve), conditionValues).then(result => result.rows)
 }
 
 exports.delet = function delet(table, id) {
